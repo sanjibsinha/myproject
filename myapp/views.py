@@ -1,15 +1,9 @@
 from django.shortcuts import render
+from .models import Product
 
 def index(request):
-    context = {
-        'message': 'Hello from Django World!',
-        'items': ['Apple', 'Banana', 'Orange', 'Grapes'],
-        'author': {
-            'name': 'John Doe',
-            'age': 30,
-            'city': 'New York'
-        }
-    }
+    products = Product.objects.all()  # Get all products from the database
+    context = {'products': products} 
     return render(request, 'myapp/index.html', context)
 
 def about(request):

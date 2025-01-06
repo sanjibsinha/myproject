@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Django App</title>
+    <title>Product Catalog</title>
 </head>
 <body>
-    <h1>{{ message }}</h1>
-
-    <h2>Items:</h2>
+    <h1>Product List</h1>
     <ul>
-        {% for item in items %}  <li>{{ item }}</li>
+        {% for product in products %} 
+            <li>{{ product.name }} - ${{ product.price }}</li> 
         {% endfor %}
     </ul>
-
-    <h2>Author Information:</h2>
-    <p>Name: {{ author.name }}</p>    <p>Age: {{ author.age }}</p>
-    <p>City: {{ author.city }}</p>
-
-    <a href="{% url 'about' %}">Go to About Page</a>
-    <p></p>
-    <a href="{% url 'contact' %}">Go to Contact Page</a>
 </body>
 </html>
